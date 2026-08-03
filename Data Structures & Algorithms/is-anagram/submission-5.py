@@ -1,0 +1,24 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        from collections import Counter
+        return Counter(s) == Counter(t)
+        s1 = {}
+
+        for c in s:
+            s1[c] = 0
+        for c in s:
+            s1[c] += 1
+        
+        for c in t:
+            if c not in s1:
+                return False
+
+            s1[c] -= 1
+        
+        for c in s1:
+            if s1[c] != 0:
+                return False
+
+        return True
+            
+        
